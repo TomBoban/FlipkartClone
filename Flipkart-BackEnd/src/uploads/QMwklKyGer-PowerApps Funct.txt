@@ -1,0 +1,99 @@
+ TomBob@tombob777.onmicrosoft.com.
+tomboban777@outlook.com.
+https://tombob777.sharepoint.com/sites/TomTech
+
+To give URL: Launch("https://www.udemy.com/")
+Conditional IF :
+If(Value(DataCardValue5.Text) < 8, Red, Blue)
+
+Functionality
+To add Rating
+* Select HintText in left side box
+*If(Rating1.value > 3, "What Did you Like About the Course?", 
+"How We Can improve our course")
+
+TO ADD Pop Up Messg
+*On Selecting icon or button(onSelect )
+*UpdateContext({DiscountPop1:true})
+*UpdateContext({DiscountPop1:false})
+*To Bind
+Select both the datacards from left side and on top change 
+onSelect toVisible and write on top 
+DiscountPop1
+
+* To display 2 names or column values horizontally together.
+*ThisItem.Title & " " & ThisItem.Last
+
+*To disable edit or to make a form label as view only
+:Select the particular card and go to advanced settings. Unlock
+the settings and last option displayMode add .View
+
+
+* Searching & Sorting
+SortByColumns(Filter([@InternsList], 
+StartsWith(Title,TextSearchBox1.Text)),
+ "School", If(SortDescending1, Descending, Ascending))
+*To Delete Entire Details
+:Remove([@InternsList], BrowseGallery1.Selected);
+ If (IsEmpty(Errors([@InternsList], BrowseGallery1.Selected)),
+ Back())
+
+Dynamic method to change value of an element
+* On right top portion select which property you need to change
+like Text, Height etc..
+If(1=1, "Customer App","Table1") 
+
+
+To Concatinate 2 things
+* Concatenate(ThisItem.FirstName, " ", ThisItem.LastName)
+
+
+TO Format using function
+*Text(ThisItem.DateJoined, "mm/dd/yyyy")
+
+
+To set Title Dynamically
+*FirstName_DataCard1.Default: Reference any name according to your
+ need
+*Concatinate(FirstName_DataCard1.Default," ",LastName_DataCard1.Default)
+
+
+To Update a Property
+*Select Update after selecting a data card
+*DataCardValue16.Text * 10
+*After submitting the value will get reflected
+
+
+To Remove a feature
+*Just select the element and press delete
+
+To change Display 
+*Select the respective data card and select Display Mode
+*Parent.DisplayMode.View
+
+
+TRIGGERS: Causes specific actions when called.
+OnHidden
+OnVisible
+OnChange
+OnSelect etc
+* Use Semi Colon to use muliple functions
+Example
+*To Close a form : ResetForm(EditForm1);Back()
+*To Submit a form : SubmitForm(EditForm1)
+*To Add a form and navigate : 
+NewForm(EditForm1);Navigate(EditScreen1, ScreenTransition.None)
+:TO Navigate : Navigate(DetailScreen1, ScreenTransition.None)
+
+
+To FInd Errors 
+* Click on App CHecker
+
+FUNCTIONS
+*REFER https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/formula-reference
+
+*Text: Convert any data type to text
+Ex:
+Text(ThisItem.DateJoined, ShortDate)
+
+
